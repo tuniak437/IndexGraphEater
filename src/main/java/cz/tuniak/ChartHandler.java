@@ -14,10 +14,10 @@ class ChartHandler {
 
   private static final Logger log = LogManager.getLogger(ChartHandler.class.getName());
 
-  // create chart method returns chart with 5 arguments
+  // createChart method returns chart with 5 arguments
   // getMonthChart gets chart data (1 month) appends lists
   // on object, call create chart and return it
-  // get whole chart gets all months and creates chart from it
+  // getWholeChart gets all months and creates chart from it
   private List<Date> day;
   private List<Double> open;
   private List<Double> high;
@@ -34,7 +34,7 @@ class ChartHandler {
 
   OHLCChart getMonthChart(ChartData chartData) {
     appendData(chartData);
-    return createChartXOXO(
+    return createChart(
         chartData.getDay(),
         chartData.getOpen(),
         chartData.getHigh(),
@@ -51,16 +51,12 @@ class ChartHandler {
   }
 
   OHLCChart getWholeChart() {
-    return createChartXOXO(day, open, high, low, close);
+    return createChart(day, open, high, low, close);
   }
 
-  private OHLCChart createChartXOXO(
-      List<Date> day,
-      List<Double> open,
-      List<Double> high,
-      List<Double> low,
-      List<Double> close) {
-    final OHLCChart chart = new OHLCChart(800, 600);
+  private OHLCChart createChart(
+      List<Date> day, List<Double> open, List<Double> high, List<Double> low, List<Double> close) {
+    final OHLCChart chart = new OHLCChart(1000, 600);
     chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideSE);
     chart.getStyler().setDefaultSeriesRenderStyle(OHLCSeries.OHLCSeriesRenderStyle.Candle);
 

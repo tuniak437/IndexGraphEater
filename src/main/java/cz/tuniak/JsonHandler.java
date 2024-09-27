@@ -20,12 +20,12 @@ class JsonHandler {
   private Path filePath;
   private URL url;
 
+  // an alternative on how to deal with MalformedURLException
   //  JsonHandler(String filePath, String url) throws MalformedURLException {
   //    this.filePath = Paths.get(filePath);
   //    this.url = new URL(url);
   //  }
 
-  // an alternative on how to deal with MalformedURLException
   JsonHandler(String filePath, String url) {
     this.filePath = Paths.get(filePath);
     try {
@@ -36,7 +36,7 @@ class JsonHandler {
   }
 
   /**
-   * Method tries to read data from URL page. If it is successful, data is stored is .json file. In
+   * Method tries to read data from URL page. If it is successful, data is stored in .json file. In
    * case there is a problem with Internet connection this file is used to create chart instead.
    *
    * @return The JSONObject.
